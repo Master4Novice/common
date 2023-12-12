@@ -1,6 +1,6 @@
 {
   "name": "types",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Common Node Types",
   "main": "cjs/index.cjs",
   "module": "es/index.mjs",
@@ -31,4 +31,3 @@
     "directory": "dist"
   }
 }
-
