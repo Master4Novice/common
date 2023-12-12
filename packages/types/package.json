@@ -1,6 +1,6 @@
 {
-  "name": "types",
-  "version": "0.0.1",
+  "name": "@m4n/types",
+  "version": "0.0.0",
   "description": "Common Node Types",
   "main": "cjs/index.cjs",
   "module": "es/index.mjs",
