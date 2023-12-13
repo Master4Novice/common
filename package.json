@@ -6,7 +6,11 @@
     "packages/*"
   ],
   "scripts": {
-    "publish": "lerna publish --no-private"
+    "clean":"lerna run clean",
+    "publish": "lerna publish --no-private",
+    "version":"lerna version --no-private",
+    "build": "lerna run build",
+    "prepublish": "npm run clean && npm run version && npm run build"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.5",
