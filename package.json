@@ -5,6 +5,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "publish": "lerna publish --no-private"
+  },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.5",
     "lerna": "^8.0.0",
