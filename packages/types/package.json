@@ -1,0 +1,33 @@
+{
+  "name": "@master4n/types",
+  "version": "1.0.0",
+  "description": "Common Node Types",
+  "main": "cjs/index.cjs",
+  "module": "es/index.mjs",
+  "types": "index.d.ts",
+  "type": "module",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && rollup --config",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Master4Novice/common.git"
+  },
+  "keywords": [
+    "types"
+  ],
+  "author": "dwivna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Master4Novice/common/issues"
+  },
+  "homepage": "https://github.com/Master4Novice/common#readme",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "root",
+  "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean":"lerna run clean",
+    "publish": "lerna publish --no-private --force-publish",
+    "version":"lerna version --no-private --no-git-tag-version --no-push",
+    "build": "lerna run build",
+    "prepublish": "npm run clean && npm run version && npm run build"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.5",
+    "lerna": "^8.0.0",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.8.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-dts": "^6.1.0"
+  }
+}
