@@ -6,5 +6,5 @@ export interface Tree {
     spouse: TreeNode,
     father: TreeNode,
     mother: TreeNode,
-    children: [TreeNode]
+    childrens: [TreeNode]
 }
