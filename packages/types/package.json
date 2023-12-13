@@ -1,5 +1,5 @@
 {
-  "name": "@m4n/types",
+  "name": "@master4n/types",
   "version": "0.0.0",
   "description": "Common Node Types",
   "main": "cjs/index.cjs",
