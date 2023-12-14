@@ -7,10 +7,9 @@
   ],
   "scripts": {
     "clean":"lerna run clean",
-    "publish": "lerna publish --no-private --force-publish",
-    "version":"lerna version --no-private --no-git-tag-version --no-push",
-    "build": "lerna run build",
-    "prepublish": "npm run clean && npm run version && npm run build"
+    "publish":"lerna publish --no-private",
+    "build": "npm run clean && lerna run build",
+    "postpublish": "npm run build"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.5",
