@@ -27,6 +27,14 @@ interface TreeNode {
     dateOfDeath: Date;
 }
 
+interface Address {
+    country: string
+    state: string
+    district: string
+    village: string
+    pin: number
+}
+
 interface Tree {
     id: string;
     info: TreeNode;
@@ -34,6 +42,7 @@ interface Tree {
     father: TreeNode;
     mother: TreeNode;
     childrens: [TreeNode];
+    nativeAddress: Address
 }
 ````
 

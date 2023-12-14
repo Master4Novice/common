@@ -29,7 +29,6 @@
   },
   "publishConfig": {
     "directory": "dist",
-    "access": "public",
-    "tag": "Master4Novice/Types"
+    "access": "public"                                   
   }
 }

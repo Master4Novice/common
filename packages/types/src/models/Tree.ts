@@ -1,4 +1,5 @@
 import { TreeNode } from './TreeNode';
+import { Address } from './Address';
 
 export interface Tree {
     id: string,
@@ -7,4 +8,5 @@ export interface Tree {
     father: TreeNode,
     mother: TreeNode,
     childrens: [TreeNode]
+    nativeAddress: Address
 }
