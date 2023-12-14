@@ -6,12 +6,13 @@
     "packages/*"
   ],
   "scripts": {
-    "clean":"lerna run clean",
-    "publish":"lerna publish --no-private",
+    "clean": "lerna run clean",
+    "publish": "lerna publish --no-private",
     "build": "npm run clean && lerna run build",
     "postpublish": "npm run build"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "lerna": "^8.0.0",
     "rimraf": "^5.0.5",
