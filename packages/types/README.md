@@ -8,47 +8,20 @@ This package contains type definitions for Master4Novice.
 
 ## Details
 
-Files were exported from the package.
+Files were exported from the package from latest release.
 
 ````ts
-enum Gender {
-    MALE = "Male",
-    FEMALE = "Female",
-    OTHERS = "Others"
-}
+import { HttpStatus } from @master4n/types
 
-interface TreeNode {
-    id: string;
-    firstName: string;
-    middleName: string;
-    lastName: string;
-    gender: Gender;
-    dateOfBirth: Date;
-    dateOfDeath: Date;
-}
+HttpStatus.OK.toString() // This will give string value.
+HttpStatus.OK.value() // This will give status code as number.
 
-interface Address {
-    country: string
-    state: string
-    district: string
-    village: string
-    pin: number
-}
-
-interface Tree {
-    id: string;
-    info: TreeNode;
-    spouse: TreeNode;
-    father: TreeNode;
-    mother: TreeNode;
-    childrens: [TreeNode];
-    nativeAddress: Address
-}
+// All possible HttpStatus added
 ````
 
 ### Additional Details
 
-* Last updated: Thur, 14 Dec 2023
+* Last updated: Thur, 16 Dec 2023
 * Dependencies: none
 
 ## Credits
