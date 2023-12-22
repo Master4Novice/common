@@ -1,6 +1,6 @@
 # Installation
 
-> `npm install @master4n/types`
+> `npm install @master4n/http-status`
 
 ## Summary
 
@@ -11,7 +11,12 @@ This package contains type definitions for Master4Novice.
 Files were exported from the package from latest release.
 
 ````ts
-// All required types for @master4novice projects
+import { HttpStatus } from @master4n/http-status
+
+HttpStatus.OK.toString() // This will give string value.
+HttpStatus.OK.value() // This will give status code as number.
+
+// All possible HttpStatus added
 ````
 
 ### Additional Details
