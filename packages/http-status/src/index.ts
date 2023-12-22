@@ -1,4 +1,4 @@
-import { setNameValue } from '../utils/string-number';
+import { setNameValue } from '@master4n/types/dist';
 
 export const HttpStatus = Object.freeze({
     CONTINUE:  setNameValue("Continue", 100),
