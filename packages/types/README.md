@@ -10,13 +10,9 @@ This package contains type definitions for Master4Novice.
 
 Files were exported from the package from latest release.
 
-````ts
-// All required types for @master4novice projects
-````
-
 ### Additional Details
 
-* Last updated: Sat, 23 Dec 2023
+* Last updated: Thu, 28 Dec 2023
 * Dependencies: none
 
 ## Credits
