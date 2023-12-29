@@ -1,6 +1,6 @@
 {
   "name": "@master4n/types",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Node Types For Application",
   "main": "cjs/index.cjs",
   "module": "es/index.mjs",
