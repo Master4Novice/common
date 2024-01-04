@@ -1,1 +1,1 @@
-export * as Family from './models/common';
+export * from './models/common';

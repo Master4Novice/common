@@ -48,8 +48,13 @@ export interface Person {
     gender: Gender,
     birthDate?: Date,
     deathDate?: Date
-    maritalStatus?: MaritalStatus
+    maritalStatus: MaritalStatus
     status: Status
+    /**
+     * Display the family tree.
+     * @param depth 
+     */
+    displayFamilyTree(depth: number): void
 }
 
 interface  FamilyOperations {
@@ -82,7 +87,7 @@ export class FamilyMember implements Person, FamilyOperations {
     lastName: string;
     gender: Gender;
     children: Person[];
-    maritalStatus?: MaritalStatus;
+    maritalStatus: MaritalStatus;
     birthDate?: Date;
     deathDate?: Date;
     spouse?: FamilyMember;
@@ -97,6 +102,7 @@ export class FamilyMember implements Person, FamilyOperations {
         this.gender = gender;
         this.status = status;
         this.children = new Array<Person>
+        this.maritalStatus = MaritalStatus.SINGLE
     }
 
     setAddress(address: Address): void {
@@ -114,9 +120,7 @@ export class FamilyMember implements Person, FamilyOperations {
     }
 
     setMaritalStatus(maritalStatus: MaritalStatus): void {
-        if(this.isAlive()) {
-            this.maritalStatus = maritalStatus;
-        }
+        this.maritalStatus = maritalStatus;
     }
 
     private isMarried(): boolean {
@@ -163,11 +167,18 @@ export class FamilyMember implements Person, FamilyOperations {
      * Add person childrens.
      * @param child 
      */
-    addChild(child: FamilyMember){
+    addChild(children: FamilyMember[]){
         if(this.isMarried()) {
-            this.children.push(child);
+            this.children.push(...children);
         } else {
             throw new SinglePersonError()
+        }
+    }
+
+    displayFamilyTree(depth: number = 0): void {
+        console.log(' '.repeat(depth * 2) + this.firstName + ' ' + this.middleName + ' ' + this.lastName);
+        for (const child of this.children) {
+          child.displayFamilyTree(depth + 1);
         }
     }
 }
