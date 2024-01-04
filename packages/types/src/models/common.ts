@@ -86,7 +86,7 @@ export class FamilyMember implements Person, FamilyOperations {
     middleName: string;
     lastName: string;
     gender: Gender;
-    children: Person[];
+    children?: FamilyMember[];
     maritalStatus: MaritalStatus;
     birthDate?: Date;
     deathDate?: Date;
@@ -101,7 +101,6 @@ export class FamilyMember implements Person, FamilyOperations {
         this.lastName = lastName;
         this.gender = gender;
         this.status = status;
-        this.children = new Array<Person>
         this.maritalStatus = MaritalStatus.SINGLE
     }
 
@@ -121,6 +120,9 @@ export class FamilyMember implements Person, FamilyOperations {
 
     setMaritalStatus(maritalStatus: MaritalStatus): void {
         this.maritalStatus = maritalStatus;
+        if(this.maritalStatus !== MaritalStatus.SINGLE){
+            this.children = new Array<FamilyMember>
+        }
     }
 
     private isMarried(): boolean {
@@ -167,9 +169,9 @@ export class FamilyMember implements Person, FamilyOperations {
      * Add person childrens.
      * @param child 
      */
-    addChild(children: FamilyMember[]){
-        if(this.isMarried()) {
-            this.children.push(...children);
+    addChild(child: FamilyMember){
+        if(this.isMarried() && this.children) {
+            this.children.push(child);
         } else {
             throw new SinglePersonError()
         }
@@ -177,8 +179,10 @@ export class FamilyMember implements Person, FamilyOperations {
 
     displayFamilyTree(depth: number = 0): void {
         console.log(' '.repeat(depth * 2) + this.firstName + ' ' + this.middleName + ' ' + this.lastName);
-        for (const child of this.children) {
-          child.displayFamilyTree(depth + 1);
+        if(this.children) {
+            for (const child of this.children) {
+                child.displayFamilyTree(depth + 1);
+            }
         }
     }
 }
