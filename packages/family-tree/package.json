@@ -1,0 +1,43 @@
+{
+  "name": "@master4n/family-tree",
+  "version": "1.0.0",
+  "description": "Family Tree Node Application Library",
+  "main": "cjs/index.cjs",
+  "module": "es/index.mjs",
+  "types": "index.d.ts",
+  "type": "module",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && rollup --config",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Master4Novice/common.git"
+  },
+  "keywords": [
+    "family-tree",
+    "typescript"
+  ],
+  "author": "dwivna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Master4Novice/common/issues"
+  },
+  "homepage": "https://github.com/Master4Novice/common#readme",
+  "devDependencies": {
+    "@types/config": "^3.3.3",
+    "typescript": "^5.3.3"
+  },
+  "publishConfig": {
+    "directory": "dist",
+    "access": "public"
+  },
+  "dependencies": {
+    "@master4n/decorators": "1.0.6",
+    "@master4n/types": "1.1.1",
+    "@types/uuid": "^9.0.7",
+    "config": "^3.3.9",
+    "uuid": "^9.0.1"
+  }
+}
