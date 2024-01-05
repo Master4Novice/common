@@ -1,1 +1,1 @@
-export * from './models/common';
+export * from './models/person';
