@@ -16,9 +16,10 @@ This package contains various operation for family tree creation. Kindly set tru
 Files were exported from the package.
 
 ````ts
- import { createFamilyRoot, FamilyMember } from '@master4n/family-tree'
+ import { createFamilyRoot, FamilyMember, displayFamilyTree } from '@master4n/family-tree'
 
- createFamilyRoot(input: FamilyMember): FamilyMember //It will create a family tree.
+ const root = createFamilyRoot(input: FamilyMember): FamilyMember //It will create a family tree.
+ displayFamilyTree(root) // Display Tree
 ````
 
 ## Credits
