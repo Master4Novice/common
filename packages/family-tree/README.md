@@ -21,11 +21,6 @@ Files were exported from the package.
  createFamilyRoot(input: FamilyMember): FamilyMember //It will create a family tree.
 ````
 
-### Additional Details
-
-* Last updated: Fri, 05 Jan 2024
-* Dependencies: none
-
 ## Credits
 
 These definitions were written by [Master4Novice](https://github.com/Master4Novice).

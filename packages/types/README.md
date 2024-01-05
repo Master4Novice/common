@@ -10,11 +10,6 @@ This package contains type definitions for Master4Novice.
 
 Files were exported from the package from latest release.
 
-### Additional Details
-
-* Last updated: Thu, 05 Jan 2024
-* Dependencies: none
-
 ## Credits
 
 These definitions were written by [Master4Novice](https://github.com/Master4Novice).
