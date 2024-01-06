@@ -1,6 +1,6 @@
 {
   "name": "@master4n/family-tree",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Family Tree Node Application Library",
   "main": "cjs/index.cjs",
   "module": "es/index.mjs",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@master4n/decorators": "1.0.6",
-    "@master4n/types": "^1.1.4",
+    "@master4n/types": "^1.1.5",
     "@types/uuid": "^9.0.7",
     "config": "^3.3.9",
     "uuid": "^9.0.1"
