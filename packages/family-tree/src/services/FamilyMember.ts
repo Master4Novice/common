@@ -6,6 +6,7 @@ import { FamilyOperations } from '../models/FamilyOperations';
 export class FamilyMember implements Person, FamilyOperations {
     @GenerateID()
     id!: string;
+    familyMemberId: string = this.id
     firstName: string;
     middleName: string;
     lastName: string;
