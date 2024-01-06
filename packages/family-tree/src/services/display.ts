@@ -17,9 +17,14 @@ export function displayFamilyTree(root:FamilyMember, depth: number = 0) {
 
 function display(root: FamilyMember) {
     const husband = root.middleName ? root.firstName + ' ' + root.middleName + ' ' + root.lastName : root.firstName + ' ' + root.lastName ;
-    if(root.spouse) {
-        const wife = root.spouse.middleName ? root.spouse.firstName + ' ' + root.spouse.middleName + ' ' + root.spouse.lastName : root.spouse.firstName + ' ' + root.spouse.lastName;
-        return '[' + husband + ':' + wife + ']';
+    if(root.spouse && root.spouse.length > 0) {
+        const wifes = new Array<string>;
+        root.spouse.map((inSpou)=> {
+            const wife = inSpou.middleName ? inSpou.firstName + ' ' + inSpou.middleName + ' ' + inSpou.lastName : inSpou.firstName + ' ' + inSpou.lastName;
+            wifes.push(wife)
+        })
+        
+        return '[' + husband + ':' + wifes + ']';
     }
     return '[' + husband + ']';
 }

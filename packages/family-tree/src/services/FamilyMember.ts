@@ -1,6 +1,6 @@
 import { Person, Gender, MaritalStatus, Status, Address } from '@master4n/types/dist';
 import { GenerateID } from '@master4n/decorators/dist';
-import { SinglePersonError } from '../errors/errors';
+import { SinglePersonError, AlivePersonError } from '../errors/errors';
 import { FamilyOperations } from '../models/FamilyOperations';
 
 export class FamilyMember implements Person, FamilyOperations {
@@ -14,8 +14,7 @@ export class FamilyMember implements Person, FamilyOperations {
     maritalStatus: MaritalStatus;
     birthDate?: Date;
     deathDate?: Date;
-    spouse?: FamilyMember;
-    parent?: FamilyMember;
+    spouse?: FamilyMember[];
     status: Status;
     address?: Address;
 
@@ -32,20 +31,23 @@ export class FamilyMember implements Person, FamilyOperations {
         this.address = address;
     }
 
-    setBirthDate(birthDate: Date): void {
+    setBirthDate(birthDate?: Date): void {
         this.birthDate = birthDate;
     }
 
-    setDeathDate(deathDate: Date): void {
+    setDeathDate(deathDate?: Date): void {
         if(!this.isAlive()){
             this.deathDate = deathDate;
+        } else {
+            throw new AlivePersonError();
         }
     }
 
     setMaritalStatus(maritalStatus: MaritalStatus): void {
         this.maritalStatus = maritalStatus;
         if(this.maritalStatus !== MaritalStatus.SINGLE){
-            this.children = new Array<FamilyMember>
+            this.children = new Array<FamilyMember>;
+            this.spouse = new Array<FamilyMember>;
         }
     }
 
@@ -74,19 +76,11 @@ export class FamilyMember implements Person, FamilyOperations {
      * @param spouse 
      */
     setSpouse(spouse: FamilyMember): void {
-         if(this.isMarried()) {
-            this.spouse = spouse;
+         if(this.isMarried() && this.spouse) {
+            this.spouse.push(spouse);
          } else {
             throw new SinglePersonError()
          }
-    }
-
-    /**
-     * Set parent of the person.
-     * @param parent 
-     */
-    setParent(parent: FamilyMember) {
-        this.parent = parent;
     }
 
     /**
