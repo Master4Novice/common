@@ -1,3 +1,4 @@
+import { Date } from './common';
 /**
  * Gender Person Status.
  */
@@ -29,26 +30,26 @@ export enum Status {
  * Address of the person's family
  */
 export interface Address {
-    country: string
-    state: string
-    district: string
-    village: string
-    pin: number
+    country: String
+    state: String
+    district: String
+    village: String
+    pin: Number
 }
 
 /**
  * Person Details
  */
 export interface Person {
-    id: string
-    firstName: string,
-    middleName: string,
-    lastName: string
-    gender: Gender,
-    birthDate?: Date,
-    deathDate?: Date
-    maritalStatus: MaritalStatus
+    id: String
+    firstName: String
+    middleName: String
+    lastName: String
+    gender: Gender
+    birthDate: Date
     status: Status
+    deathDate: Date
+    maritalStatus: MaritalStatus
 }
 
 
