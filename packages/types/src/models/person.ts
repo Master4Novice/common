@@ -1,4 +1,4 @@
-import { Date } from './common';
+import { DateType } from './common';
 /**
  * Gender Person Status.
  */
@@ -46,9 +46,9 @@ export interface Person {
     middleName: String
     lastName: String
     gender: Gender
-    birthDate: Date
+    birthDate: DateType
     status: Status
-    deathDate: Date
+    deathDate: DateType
     maritalStatus: MaritalStatus
 }
 
