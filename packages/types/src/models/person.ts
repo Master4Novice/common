@@ -30,21 +30,21 @@ export enum Status {
  * Address of the person's family
  */
 export interface Address {
-    country: String
-    state: String
-    district: String
-    village: String
-    pin: Number
+    country: string
+    state: string
+    district: string
+    village: string
+    pin: number
 }
 
 /**
  * Person Details
  */
 export interface Person {
-    id: String
-    firstName: String
-    middleName: String
-    lastName: String
+    id: string
+    firstName: string
+    middleName: string
+    lastName: string
     gender: Gender
     birthDate: DateType
     status: Status

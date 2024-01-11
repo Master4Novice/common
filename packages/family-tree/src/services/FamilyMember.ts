@@ -3,10 +3,10 @@ import { GenerateID, NotNull, ValidDate } from '@master4n/decorators/dist';
 
 export class FamilyMember implements Person {
     @GenerateID
-    id: String;
-    firstName: String;
-    middleName: String;
-    lastName: String;
+    id: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
     gender: Gender;
     birthDate: DateType;
     status: Status;
@@ -26,7 +26,7 @@ export class FamilyMember implements Person {
      * @param firstName 
      */
     @NotNull
-    setFirstName(firstName: String): void {
+    setFirstName(firstName: string): void {
         this.firstName = firstName;
     }
 
@@ -35,7 +35,7 @@ export class FamilyMember implements Person {
      * @param middleName 
      */
     @NotNull
-    setMiddleName(middleName: String): void {
+    setMiddleName(middleName: string): void {
         this.middleName = middleName;
     }
 
@@ -44,7 +44,7 @@ export class FamilyMember implements Person {
      * @param lastName 
      */
     @NotNull
-    setLastName(lastName: String): void {
+    setLastName(lastName: string): void {
         this.lastName = lastName;
     }
 
