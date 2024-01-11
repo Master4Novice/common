@@ -1,97 +1,127 @@
-import { Person, Gender, MaritalStatus, Status, Address } from '@master4n/types/dist';
-import { GenerateID } from '@master4n/decorators/dist';
-import { SinglePersonError, AlivePersonError } from '../errors/errors';
-import { FamilyOperations } from '../models/FamilyOperations';
+import { Person, Gender, MaritalStatus, Status, Address, DateType } from '@master4n/types/dist';
+import { GenerateID, NotNull, ValidDate } from '@master4n/decorators/dist';
 
-export class FamilyMember implements Person, FamilyOperations {
+export class FamilyMember implements Person {
     @GenerateID
-    id!: string;
-    firstName: string;
-    middleName: string;
-    lastName: string;
+    id: String;
+    firstName: String;
+    middleName: String;
+    lastName: String;
     gender: Gender;
-    children?: FamilyMember[];
-    maritalStatus: MaritalStatus;
-    birthDate?: Date;
-    deathDate?: Date;
-    spouse?: FamilyMember[];
+    birthDate: DateType;
     status: Status;
-    address?: Address;
+    deathDate: DateType;
+    maritalStatus: MaritalStatus;
+    spouse: FamilyMember[];
+    children: FamilyMember[];
+    address: Address;
 
-    constructor(firstName: string, middleName: string, lastName: string, gender: Gender, status: Status) {
+    constructor(status: Status) {
+       this.status = status; 
+       this.maritalStatus = MaritalStatus.SINGLE; 
+    }
+
+    /**
+     * Set First Name
+     * @param firstName 
+     */
+    @NotNull
+    setFirstName(firstName: String): void {
         this.firstName = firstName;
+    }
+
+    /**
+     * Set Middle Name
+     * @param middleName 
+     */
+    @NotNull
+    setMiddleName(middleName: String): void {
         this.middleName = middleName;
+    }
+
+    /**
+     * Set Last Name
+     * @param lastName 
+     */
+    @NotNull
+    setLastName(lastName: String): void {
         this.lastName = lastName;
+    }
+
+    /**
+     * Set Gender
+     * @param gender 
+     */
+    @NotNull
+    setGender(gender: Gender): void {
         this.gender = gender;
-        this.status = status;
-        this.maritalStatus = MaritalStatus.SINGLE
     }
 
-    setAddress(address: Address): void {
-        this.address = address;
-    }
-
-    setBirthDate(birthDate?: Date): void {
+    /**
+     * Birth date in specific format
+     * @param birthDate DD/MM/YYYY
+     */
+    @ValidDate
+    setBirthDate(birthDate: DateType): void {
         this.birthDate = birthDate;
     }
 
-    setDeathDate(deathDate?: Date): void {
-        if(!this.isAlive()){
-            this.deathDate = deathDate;
-        } else {
-            throw new AlivePersonError();
-        }
+    /**
+     * Set status of the person.
+     * @param status 
+     */
+    setStatus(status: Status) {
+        this.status = status;
     }
 
+    /**
+     * Death date in specific format
+     * @param deathDate DD/MM/YYYY
+     */
+    @ValidDate
+    setDeathDate(deathDate: DateType): void {
+        this.deathDate = deathDate;
+    }
+
+    /**
+     * Set Marital Status of person.
+     * @param maritalStatus 
+     */
     setMaritalStatus(maritalStatus: MaritalStatus): void {
         this.maritalStatus = maritalStatus;
-        if(this.maritalStatus !== MaritalStatus.SINGLE){
-            this.children = new Array<FamilyMember>;
-            this.spouse = new Array<FamilyMember>;
-        }
-    }
-
-    private isMarried(): boolean {
-       if(this.maritalStatus !== undefined){
-         if(this.maritalStatus !== MaritalStatus.SINGLE) {
-            return true;
-         } else {
-            return false;
-         }
-       } else {
-         return false;
-       }
-    }
-
-    private isAlive(): boolean {
-        if(this.status === Status.ALIVE){
-            return true;
-        } else {
-            return false;
-        }
     }
     
     /**
-     * Set the spouse of the person.
+     * Add the spouse of the person.
      * @param spouse 
      */
-    setSpouse(spouse: FamilyMember): void {
-         if(this.isMarried() && this.spouse) {
-            this.spouse.push(spouse);
+    addSpouse(spouse: FamilyMember): void {
+         if(this.spouse) {
+            this.spouse.push(spouse)
          } else {
-            throw new SinglePersonError()
+            this.spouse = new Array<FamilyMember>;
+            this.spouse.push(spouse);
          }
     }
 
     /**
-     * Add person childrens.
+     * Add child of the person.
      * @param child 
      */
-    addChild(child: FamilyMember){
-        if(this.isMarried() && this.children) {
+    addChild(child: FamilyMember): void {
+        if(this.children) {
             this.children.push(child);
         } else {
-            throw new SinglePersonError()
+            this.children = new Array<FamilyMember>;
+            this.children.push(child);
         }
+    }
+
+    /**
+     * Set the address of the person
+     * @param address 
+     */
+    setAddress(address: Address): void{
+        this.address = address;
     }
 }

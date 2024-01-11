@@ -1,7 +1,7 @@
 {
   "name": "@master4n/family-tree",
   "version": "1.0.8",
-  "description": "Family Tree Node Application Library",
+  "description": "Family Tree Node Type Library",
   "main": "cjs/index.cjs",
   "module": "es/index.mjs",
   "types": "index.d.ts",
