@@ -12,8 +12,8 @@ export class FamilyMember implements Person {
     status: Status;
     deathDate: DateType;
     maritalStatus: MaritalStatus;
-    spouse: FamilyMember[];
-    children: FamilyMember[];
+    spouse: string[];
+    children: string[];
     address: Address;
 
     constructor(status: Status) {
@@ -95,12 +95,12 @@ export class FamilyMember implements Person {
      * Add the spouse of the person.
      * @param spouse 
      */
-    addSpouse(spouse: FamilyMember): void {
+    addSpouse(id: string): void {
          if(this.spouse) {
-            this.spouse.push(spouse)
+            this.spouse.push(id)
          } else {
-            this.spouse = new Array<FamilyMember>;
-            this.spouse.push(spouse);
+            this.spouse = new Array<string>;
+            this.spouse.push(id);
          }
     }
 
@@ -108,12 +108,12 @@ export class FamilyMember implements Person {
      * Add child of the person.
      * @param child 
      */
-    addChild(child: FamilyMember): void {
+    addChild(id: string): void {
         if(this.children) {
-            this.children.push(child);
+            this.children.push(id);
         } else {
-            this.children = new Array<FamilyMember>;
-            this.children.push(child);
+            this.children = new Array<string>;
+            this.children.push(id);
         }
     }
 
