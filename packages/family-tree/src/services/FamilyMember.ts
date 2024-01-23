@@ -1,9 +1,11 @@
 import { Person, Gender, MaritalStatus, Status, Address, DateType } from '@master4n/types/dist';
 import { GenerateID, NotNull, ValidDate } from '@master4n/decorators/dist';
+import { FamilyType } from '../models/FamilyType';
 
 export class FamilyMember implements Person {
     @GenerateID
     id: string;
+    familyId: FamilyType
     firstName: string;
     middleName: string;
     lastName: string;
@@ -125,4 +127,7 @@ export class FamilyMember implements Person {
         this.address = address;
     }
 
+    setFamilyId(familyType: FamilyType){
+        this.familyId = familyType
+    }
 }
