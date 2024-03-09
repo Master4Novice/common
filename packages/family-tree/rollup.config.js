@@ -9,25 +9,26 @@ const config = [
     input: 'src/index.ts',
     output: [
         {
-           file: 'dist/cjs/index.cjs',
+           file: 'dist/index.cjs',
            format: 'cjs',
            sourcemap: true,
         },
         {
-            file: 'dist/es/index.mjs',
-            format: 'es',
+            file: 'dist/index.js',
+            format: 'esm',
             sourcemap: true,
          }
     ],
-    external: [ 'config', 'uuid', '@master4n/decorators', '@master4n/types'],
+    external: [ 'config', 'uuid', '@master4n/decorators'],
     plugins: [
         replace({
-          'types/dist':'types',
           'decorators/dist':'decorators',
           'preventAssignment': true
         }),
         resolve(),
-        typescript(),
+        typescript({
+          tsconfig: 'tsconfig.json'
+        }),
         copy({
           targets: [
             { src: ["package.json", "README.md", "../../LICENSE"], dest: "dist" }
@@ -40,15 +41,16 @@ const config = [
       file: 'dist/index.d.ts',
       format: 'es'
     },
-    external: [ 'config', 'uuid', '@master4n/decorators', '@master4n/types'],
+    external: [ 'config', 'uuid', '@master4n/decorators'],
     plugins: [
       resolve(),
       replace({
-        'types/dist':'types',
         'decorators/dist':'decorators',
         'preventAssignment': true
       }),
-      dts()
+      dts({
+        tsconfig: 'tsconfig.json'
+      })
     ]
   }
 ];

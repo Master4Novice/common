@@ -1,22 +1,23 @@
-import { Person, Gender, MaritalStatus, Status, Address, DateType } from '@master4n/types/dist';
+import { DateType } from '../models/common';
+import { Person, Gender, MaritalStatus, Status, Address } from '../models/person';
 import { GenerateID, NotNull, ValidDate } from '@master4n/decorators/dist';
 import { FamilyType } from '../models/FamilyType';
 
 export class FamilyMember implements Person {
     @GenerateID
-    id: string;
-    familyId: FamilyType
-    firstName: string;
-    middleName: string;
-    lastName: string;
-    gender: Gender;
-    birthDate: DateType;
+    id!: string;
+    familyId!: FamilyType;
+    firstName!: string;
+    middleName!: string;
+    lastName!: string;
+    gender!: Gender;
+    birthDate!: DateType;
     status: Status;
-    deathDate: DateType;
+    deathDate!: DateType;
     maritalStatus: MaritalStatus;
-    spouses: Person[];
-    children: FamilyMember[];
-    address: Address;
+    spouses!: Person[];
+    children!: FamilyMember[];
+    address!: Address;
 
     constructor(status: Status) {
        this.status = status; 

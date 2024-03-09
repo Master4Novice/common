@@ -12,6 +12,8 @@
     "postpublish": "npm run build"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.5",
     "@rollup/plugin-typescript": "^11.1.6",
     "lerna": "^8.1.2",
     "rimraf": "^5.0.5",
