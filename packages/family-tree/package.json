@@ -41,5 +41,10 @@
     "@types/uuid": "^9.0.7",
     "config": "^3.3.9",
     "uuid": "^9.0.1"
-  }
+  },
+  "contributors": [
+    {
+      "name": "dwivna"
+    }
+  ]
 }
