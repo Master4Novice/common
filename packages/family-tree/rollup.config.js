@@ -3,18 +3,19 @@ import dts from 'rollup-plugin-dts';
 import copy from 'rollup-plugin-copy';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import terser from '@rollup/plugin-terser';
 
 const config = [
   {
     input: 'src/index.ts',
     output: [
         {
-           file: 'dist/index.cjs',
+           file: 'dist/commonjs/index.cjs',
            format: 'cjs',
            sourcemap: true,
         },
         {
-            file: 'dist/index.js',
+            file: 'dist/esm/index.js',
             format: 'esm',
             sourcemap: true,
          }
@@ -25,6 +26,7 @@ const config = [
           'decorators/dist':'decorators',
           'preventAssignment': true
         }),
+        terser(),
         resolve(),
         typescript({
           tsconfig: 'tsconfig.json'
